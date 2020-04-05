@@ -1,10 +1,13 @@
 package com.example.komunikacja.repository;
 
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.Collection;
 import java.util.Map;
 @Component
 public class PogodynkaKlientBrama {
@@ -22,5 +25,10 @@ public class PogodynkaKlientBrama {
                 .build().toUri();
 
         return restTemplate.getForObject(uri,Pogoda.class);
+    }
+    public Collection<Pogoda> getAll() {
+        return restTemplate.exchange("http://localhost:9090/wszystkie", HttpMethod.GET,
+                null, new ParameterizedTypeReference<Collection<Pogoda>>() {
+                }).getBody();
     }
 }

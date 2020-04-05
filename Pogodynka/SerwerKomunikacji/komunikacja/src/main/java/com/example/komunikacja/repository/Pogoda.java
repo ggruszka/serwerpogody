@@ -1,15 +1,17 @@
 package com.example.komunikacja.repository;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Pogoda {
     String region;
     String aura;
 
-//    public Pogoda(String region, String aura) {
+//    @JsonCreator
+//    public Pogoda(@JsonProperty("region")  String region, @JsonProperty("aura")  String aura) {
 //        this.region = region;
 //        this.aura = aura;
 //    }
-
-
 
     public String getStanPogody() {
 

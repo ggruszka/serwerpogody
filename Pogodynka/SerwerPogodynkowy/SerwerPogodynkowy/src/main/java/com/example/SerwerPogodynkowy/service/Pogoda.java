@@ -1,8 +1,23 @@
 package com.example.SerwerPogodynkowy.service;
 
+import com.fasterxml.jackson.annotation.JsonTypeId;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "pogoda")
+
 public class Pogoda {
+    @Id
+    @GeneratedValue
+    private Long id;
     String region;
     String aura;
+
+    protected Pogoda(){};
 
     public Pogoda(String region, String aura) {
         this.region = region;
