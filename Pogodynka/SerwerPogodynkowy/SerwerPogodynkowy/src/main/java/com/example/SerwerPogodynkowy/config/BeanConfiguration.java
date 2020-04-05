@@ -1,5 +1,6 @@
 package com.example.SerwerPogodynkowy.config;
 
+import com.example.SerwerPogodynkowy.repozytorium.PogodaRepozytorium;
 import com.example.SerwerPogodynkowy.service.PrognozaPogody;
 import com.example.SerwerPogodynkowy.service.PrognozaPogodyInterface;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,7 +18,7 @@ public class BeanConfiguration {
 
 
     @Bean
-    public PrognozaPogodyInterface prognozaPogodyInterface(){
-        return new PrognozaPogody(region, aura);
+    public PrognozaPogodyInterface prognozaPogodyInterface(PogodaRepozytorium pogodaRepozytorium){
+        return new PrognozaPogody(region, aura, pogodaRepozytorium);
     }
 }

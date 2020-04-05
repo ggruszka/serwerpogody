@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
+
 @RestController
 public class PogodynkaKlientKontroler {
 
@@ -19,6 +21,11 @@ public class PogodynkaKlientKontroler {
             @RequestParam(value = "aura", required = false) Integer auraID
     ){
         return pogodynkaKlientSerwis.sprawdzPogode(regionID, auraID);
+    }
+
+    @GetMapping(path="wszystkie")
+    public Collection<String> wszystkiePrognozy(){
+        return pogodynkaKlientSerwis.findAll();
     }
 
 }

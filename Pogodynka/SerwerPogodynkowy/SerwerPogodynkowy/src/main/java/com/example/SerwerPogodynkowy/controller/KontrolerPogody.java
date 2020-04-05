@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
+
 @RestController
 public class KontrolerPogody {
 
@@ -31,5 +33,10 @@ public class KontrolerPogody {
             return PrognozaPogodyInterface.getPrognozaPogody(regionID);
         }
         else  return PrognozaPogodyInterface.getPrognozaPogody();
+    }
+
+    @GetMapping(path = "wszystkie")
+    public Collection<Pogoda> wszystkie(){
+        return PrognozaPogodyInterface.findAll();
     }
 }
